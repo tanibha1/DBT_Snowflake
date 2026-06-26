@@ -1,0 +1,18 @@
+{{config(materialized='incremental',
+   unique_key = 'HOST_ID' )
+   }}
+   select
+   HOST_ID,
+   HOST_NAME,
+   HOST_SINCE,
+   IS_SUPERHOST AS IS_SUPERHOST,
+   RESPONSE_RATE AS RESPONSE_RATE,
+   CASE
+   WHEN RESPONSE_RATE > 95 THEN 'VERY RESPONSIVE'
+   WHEN RESPONSE_RATE > 80 THEN 'RESPONSIVE'
+   WHEN RESPONSE_RATE > 60 THEN 'FAIR'
+   ELSE 'NOT RESPONSIVE'
+   END AS RESPONSE_RATE_QUALITY,
+   CREATED_AT
+
+    from {{ref('bronze_hosts')}}
