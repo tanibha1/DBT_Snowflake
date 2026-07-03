@@ -8,3 +8,14 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dbt generated files
+target/
+logs/
+dbt_packages/
+
+# Generated folders inside the dbt project
+aws_dbt_snowflake_project/target/
+aws_dbt_snowflake_project/logs/
+aws_dbt_snowflake_project/dbt_packages/
+

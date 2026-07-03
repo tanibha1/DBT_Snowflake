@@ -3,6 +3,6 @@ sources:
     database: AIRBNB  
     schema: staging  
     tables:
-      - name: listing
-      - name: booking
-      - name: host
+      - name: listings
+      - name: bookings
+      - name: hosts
